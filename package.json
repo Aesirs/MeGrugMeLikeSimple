@@ -1,0 +1,13 @@
+{
+  "name": "megrugmelikesimple",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "css:dev": "@tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch",
+    "css:build": "@tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.3.0",
+    "@tailwindcss/cli": "^4.3.0"
+  }
+}

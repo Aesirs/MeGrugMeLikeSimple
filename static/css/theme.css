@@ -1,0 +1,83 @@
+/* ─── Design Tokens ─────────────────────────────── */
+@theme {
+  /* Wipe all default Tailwind color utilities */
+  --color-*: initial;
+
+  /* Core */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Page background & text (light → dark mode inversion) */
+  --color-bg: var(--color-white);
+  --color-bg-dark: var(--color-black);
+  --color-text: var(--color-black);
+  --color-text-dark: var(--color-white);
+
+  /* Text hierarchy */
+  --color-text-secondary: #404040;
+  --color-text-secondary-dark: #d4d4d4;
+  --color-muted-text: #666666;
+  --color-muted-text-dark: #999999;
+
+  /* Surfaces & borders */
+  --color-surface: #f5f5f5;
+  --color-surface-dark: #181818;
+  --color-border: #d4d4d4;
+  --color-border-dark: #525252;
+
+  /* Form backgrounds */
+  --color-input-bg-dark: #262626;
+  --color-input-bg-disabled: #fafafa;
+  --color-input-bg-disabled-dark: #171717;
+
+  /* Toggle */
+  --color-toggle-track: #e5e5e5;
+  --color-toggle-track-dark: #525252;
+
+  /* Button dark mode surfaces */
+  --color-btn-hover-dark: #e5e5e5;
+  --color-btn-secondary-hover-dark: #d4d4d4;
+
+  /* Interactive / accent colors */
+  --color-primary: #1a1a1a;
+  --color-primary-light: #666666;
+  --color-primary-dark: #000000;
+  --color-primary-bg: #f0f0f0;
+
+  --color-secondary: #555555;
+  --color-secondary-dark: #222222;
+  --color-secondary-bg: #e8e8e8;
+
+  /* Warning / accent (more orange, lighter) */
+  --color-accent: #ff8f33;
+  --color-accent-light: #ffab66;
+  --color-accent-dark: #cc7229;
+  --color-accent-bg: #fff7ed;
+
+  /* Error states */
+  --color-error-border: #fca5a5;
+  --color-error-border-dark: #dc2626;
+  --color-error-text: #7f1d1d;
+  --color-error-text-dark: #f87171;
+  --color-error-focus: #ef4444;
+  --color-error-focus-dark: #f87171;
+  --color-error-bg: #fef2f2;
+
+  /* Success states */
+  --color-success-border: #86efac;
+  --color-success-border-dark: #16a34a;
+  --color-success-text: #14532d;
+  --color-success-text-dark: #4ade80;
+  --color-success-focus: #22c55e;
+  --color-success-focus-dark: #4ade80;
+  --color-success-bg: #f0fdf4;
+
+  /* Fonts */
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}

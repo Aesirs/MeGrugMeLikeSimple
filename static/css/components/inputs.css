@@ -1,0 +1,57 @@
+/* ─── Input Fields ──────────────────────────────── */
+@layer components {
+  .input {
+    @apply block w-full px-3 py-2 rounded-lg border text-sm
+           bg-white text-text placeholder-muted-text
+           transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-0
+           disabled:bg-input-bg-disabled disabled:text-muted-text disabled:cursor-not-allowed
+           dark:bg-input-bg-dark dark:text-text-dark dark:placeholder-muted-text-dark
+           dark:disabled:bg-input-bg-disabled-dark dark:disabled:text-muted-text-dark;
+  }
+
+  .input\:primary {
+    @apply border-border focus:border-primary focus:ring-primary/20
+           dark:border-border-dark dark:focus:border-white dark:focus:ring-white/20;
+  }
+  .input\:error {
+    @apply border-error-border text-error-text
+           focus:border-error-focus focus:ring-error-focus/20
+           placeholder-error-border
+           dark:border-error-border-dark dark:text-error-text-dark
+           dark:focus:border-error-focus-dark;
+  }
+  .input\:success {
+    @apply border-success-border text-success-text
+           focus:border-success-focus focus:ring-success-focus/20
+           dark:border-success-border-dark dark:text-success-text-dark
+           dark:focus:border-success-focus-dark;
+  }
+
+  /* Input with icon */
+  .input-icon {
+    @apply relative;
+  }
+  .input-icon .icon {
+    @apply absolute inset-y-0 left-0 flex items-center pl-3
+           text-muted-text pointer-events-none
+           dark:text-muted-text-dark;
+  }
+  .input-icon .input {
+    @apply pl-10;
+  }
+
+  /* Input groups (label + input) */
+  .input-group {
+    @apply flex flex-col gap-1.5;
+  }
+  .input-group label {
+    @apply text-sm font-medium text-text-secondary dark:text-text-secondary-dark;
+  }
+  .input-group .hint {
+    @apply text-xs text-muted-text dark:text-muted-text-dark;
+  }
+  .input-group .error {
+    @apply text-xs text-error-focus dark:text-error-focus-dark;
+  }
+}

@@ -1,0 +1,35 @@
+package components
+
+type InputProps struct {
+	ID          string
+	Label       string
+	Type        string
+	Value       string
+	Placeholder string
+	Variant     string
+	Error       string
+	Hint        string
+	Disabled    bool
+	Attrs       templ.Attributes
+}
+
+templ Input(props InputProps) {
+	<div class="input-group">
+		<label for={ props.ID }>{ props.Label }</label>
+		<input
+			id={ props.ID }
+			type={ props.Type }
+			value={ props.Value }
+			placeholder={ props.Placeholder }
+			class={ templ.KV("input", true), templ.KV("input:"+props.Variant, props.Variant != "") }
+			disabled?={ props.Disabled }
+			{ props.Attrs... }
+		/>
+		if props.Hint != "" {
+			<span class="hint">{ props.Hint }</span>
+		}
+		if props.Error != "" {
+			<span class="error">{ props.Error }</span>
+		}
+	</div>
+}

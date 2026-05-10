@@ -1,0 +1,34 @@
+/* ─── Base / defaults ───────────────────────────── */
+@layer base {
+  body {
+    @apply bg-bg text-text transition-colors font-sans
+           dark:bg-bg-dark dark:text-text-dark;
+  }
+
+  .dark-toggle {
+    @apply fixed top-4 right-4 z-50;
+  }
+
+  /* Page-level typography (keep templates layout-only) */
+  .page-title {
+    @apply text-4xl font-bold text-text dark:text-text-dark;
+  }
+  .page-subtitle {
+    @apply text-lg text-muted-text dark:text-muted-text-dark;
+  }
+  .section-title {
+    @apply text-sm font-semibold text-muted-text uppercase tracking-wider
+           dark:text-muted-text-dark;
+  }
+
+  /* HTMX demo section */
+  .greeting-text {
+    @apply text-xl text-text-secondary dark:text-text-secondary-dark;
+  }
+  .counter-text {
+    @apply text-2xl font-mono;
+  }
+  .demo-text {
+    @apply text-muted-text transition-colors dark:text-muted-text-dark;
+  }
+}

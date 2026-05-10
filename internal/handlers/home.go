@@ -1,10 +1,11 @@
 package handlers
 
 import (
-	"MeGrugMeLikeSimple/internal/views"
 	"net/http"
 	"strconv"
 	"sync/atomic"
+
+	"MeGrugMeLikeSimple/internal/views"
 )
 
 type HomeHandler struct {
@@ -21,7 +22,7 @@ func (h *HomeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func (h *HomeHandler) Hello(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	w.Write([]byte("<p class='text-indigo-600 font-semibold'>Hello from Chi! 🎉</p>"))
+	w.Write([]byte("<p class='font-semibold'>Hello from Chi! 🎉</p>"))
 }
 
 func (h *HomeHandler) Counter(w http.ResponseWriter, r *http.Request) {

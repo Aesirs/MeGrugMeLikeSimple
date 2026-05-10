@@ -1,4 +1,4 @@
-.PHONY: all deps templ css css-watch build run dev
+.PHONY: all deps templ css ts css-watch build run dev watch ts-watch
 
 SHELL      := /bin/bash
 export PATH := $(HOME)/go/bin:$(PATH)
@@ -28,13 +28,24 @@ css:
 css-watch:
 	npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch
 
+# ─── TypeScript ─────────────────────────────────────────────
+ts:
+	npx tsc
+
+ts-watch:
+	npx tsc --watch
+
 # ─── Build ──────────────────────────────────────────────────
-build: templ css
+build: templ ts css
 	go build $(GO_FLAGS) -o bin/$(APP_NAME) $(GO_FILES)
 
 # ─── Run ────────────────────────────────────────────────────
-run: templ
+run: templ ts
 	go run $(GO_FILES)
+
+# ─── Watch (air auto-restart) ────────────────────────────
+watch:
+	air
 
 # ─── Dev (run in separate terminals or use tmux) ──────────
 dev:
@@ -45,4 +56,4 @@ dev:
 
 # ─── Clean ──────────────────────────────────────────────────
 clean:
-	rm -rf bin/ static/css/output.css
+	rm -rf bin/ tmp/ static/css/output.css static/js/*.js

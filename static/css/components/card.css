@@ -1,0 +1,7 @@
+/* ─── Cards / Panels ────────────────────────────── */
+@layer components {
+  .card {
+    @apply bg-surface rounded-xl border border-border p-6 shadow-sm
+           dark:bg-surface-dark dark:border-border-dark;
+  }
+}

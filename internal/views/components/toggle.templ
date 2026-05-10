@@ -1,0 +1,28 @@
+package components
+
+type ToggleProps struct {
+	ID       string
+	Label    string
+	Checked  bool
+	Variant  string
+	Disabled bool
+	Attrs    templ.Attributes
+}
+
+templ Toggle(props ToggleProps) {
+	<label class="toggle-group">
+		<label class={ templ.KV("toggle", true), templ.KV("toggle:"+props.Variant, props.Variant != "") }>
+			<input
+				id={ props.ID }
+				type="checkbox"
+				checked?={ props.Checked }
+				disabled?={ props.Disabled }
+				{ props.Attrs... }
+			/>
+			<span class="track"><span class="knob"></span></span>
+		</label>
+		<span class={ templ.KV("label", true), templ.KV("text-muted-text", props.Disabled) }>
+			{ props.Label }
+		</span>
+	</label>
+}

@@ -1,0 +1,19 @@
+package components
+
+type ButtonProps struct {
+	Variant  string
+	Size     string
+	Disabled bool
+	Attrs    templ.Attributes
+}
+
+templ Button(props ButtonProps) {
+	<button
+		class={ templ.KV("btn", true), templ.KV("btn:"+props.Variant, props.Variant !="" ), templ.KV("btn:"+props.Size,
+	props.Size !="" && props.Size !="default" ) }
+		disabled?={ props.Disabled }
+		{ props.Attrs... }
+	>
+		{ children... }
+	</button>
+}

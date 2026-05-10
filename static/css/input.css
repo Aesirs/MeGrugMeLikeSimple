@@ -1,1 +1,11 @@
+/* ─── Entry point ───────────────────────────────── */
 @import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";
+@import "./components/buttons.css";
+@import "./components/inputs.css";
+@import "./components/toggle.css";
+@import "./components/card.css";
+
+/* ─── Dark mode (class-based toggle) ────────────── */
+@custom-variant dark (&:where(.dark, .dark *));

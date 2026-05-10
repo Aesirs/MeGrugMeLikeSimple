@@ -1,0 +1,74 @@
+/* ─── Buttons ───────────────────────────────────── */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200
+           cursor-pointer inline-flex items-center justify-center gap-2
+           text-sm disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+           focus-visible:ring-offset-white dark:focus-visible:ring-offset-bg-dark;
+  }
+
+  /* Solid variants */
+  .btn\:primary {
+    @apply bg-primary text-white hover:bg-primary-dark
+           focus-visible:ring-primary
+           dark:bg-white dark:text-black dark:hover:bg-btn-hover-dark
+           dark:focus-visible:ring-white;
+  }
+  .btn\:secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark
+           focus-visible:ring-secondary
+           dark:bg-btn-hover-dark dark:text-black dark:hover:bg-btn-secondary-hover-dark
+           dark:focus-visible:ring-btn-hover-dark;
+  }
+  .btn\:accent {
+    @apply bg-accent text-white hover:bg-accent-dark
+           focus-visible:ring-accent
+           dark:bg-accent-light dark:text-black dark:hover:bg-accent
+           dark:focus-visible:ring-accent-light;
+  }
+
+  /* Outlined variants */
+  .btn\:primary-outlined {
+    @apply border-2 border-primary text-primary bg-transparent
+           hover:bg-primary hover:text-white
+           focus-visible:ring-primary
+           dark:border-white dark:text-white
+           dark:hover:bg-white dark:hover:text-black
+           dark:focus-visible:ring-white;
+  }
+  .btn\:secondary-outlined {
+    @apply border-2 border-secondary text-secondary bg-transparent
+           hover:bg-secondary hover:text-white
+           focus-visible:ring-secondary
+           dark:border-btn-hover-dark dark:text-btn-hover-dark
+           dark:hover:bg-btn-hover-dark dark:hover:text-black
+           dark:focus-visible:ring-btn-hover-dark;
+  }
+  .btn\:accent-outlined {
+    @apply border-2 border-accent text-accent bg-transparent
+           hover:bg-accent hover:text-white
+           focus-visible:ring-accent
+           dark:border-accent-light dark:text-accent-light
+           dark:hover:bg-accent-light dark:hover:text-black
+           dark:focus-visible:ring-accent-light;
+  }
+
+  /* Ghost variants */
+  .btn\:ghost {
+    @apply bg-transparent text-muted-text hover:bg-secondary-bg
+           dark:text-muted-text-dark dark:hover:bg-white/10;
+  }
+  .btn\:ghost-primary {
+    @apply bg-transparent text-primary hover:bg-primary-bg
+           dark:text-text-dark dark:hover:bg-white/10;
+  }
+
+  /* Size modifiers */
+  .btn\:sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+  .btn\:lg {
+    @apply px-6 py-3 text-base;
+  }
+}

@@ -37,4 +37,10 @@ thoughts/
 # ─── Templ ────────────────────────────────────────────────────
 *_templ.go
 
+# ─── TypeScript (compiled output, source in src/) ─────────────
+static/js/*.js
+
+# ─── Air (hot-reload temp build) ──────────────────────────────
+tmp/
+
 

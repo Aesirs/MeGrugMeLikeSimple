@@ -1,49 +1,117 @@
 package views
 
+import cmp "MeGrugMeLikeSimple/internal/views/components"
+
 templ HomePage() {
 	@BaseLayout("MeGrugMeLikeSimple") {
-		<div class="flex flex-col items-center justify-center min-h-screen gap-8 p-4">
-			<h1 class="text-4xl font-bold text-gray-900">
-				MeGrugMeLikeSimple
-			</h1>
-			<p class="text-lg text-gray-600">
-				Go + Chi + Templ + HTMX + Tailwind CSS + Hyperscript
-			</p>
-
-			<!-- HTMX example: click to load content -->
-			<button
-				hx-get="/api/hello"
-				hx-target="#greeting"
-				hx-swap="innerHTML"
-				class="px-6 py-3 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer"
-			>
-				Click me
-			</button>
-			<div id="greeting" class="text-xl text-gray-700"></div>
-
-			<!-- Hyperscript example -->
-			<div
-				_="on click toggle .text-green-600 on #hyperscript-demo"
-				class="px-6 py-3 bg-gray-200 rounded-lg cursor-pointer select-none hover:bg-gray-300 transition-colors"
-			>
-				Click to toggle color (Hyperscript)
-			</div>
-			<p id="hyperscript-demo" class="text-gray-500 transition-colors">
-				This text changes color when you click above.
-			</p>
-
-			<!-- Counter: HTMX + Hyperscript interaction -->
-			<div class="flex items-center gap-4 mt-4">
-				<button
-					hx-post="/api/counter"
-					hx-target="#counter"
-					hx-swap="innerHTML"
-					class="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-700 transition-colors cursor-pointer"
-				>
-					Increment
-				</button>
-				<span id="counter" class="text-2xl font-mono">0</span>
-			</div>
+		<div class="flex flex-col items-start justify-start min-h-screen gap-6 p-8 max-w-lg mx-auto">
+			<h1 class="page-title">MeGrugMeLikeSimple</h1>
+			<p class="page-subtitle">Go + Chi + Templ + Tailwind + HTMX + Hyperscript</p>
+			<!-- ═══ Buttons ═══ -->
+			<section>
+				<h2 class="section-title mb-3">Buttons</h2>
+				<div class="flex flex-wrap gap-3">
+					@cmp.Button(cmp.ButtonProps{Variant: "primary"}) {
+						Primary
+					}
+					@cmp.Button(cmp.ButtonProps{Variant: "secondary"}) {
+						Secondary
+					}
+					@cmp.Button(cmp.ButtonProps{Variant: "accent"}) {
+						Accent
+					}
+					@cmp.Button(cmp.ButtonProps{Variant: "primary-outlined"}) {
+						Outlined
+					}
+					@cmp.Button(cmp.ButtonProps{Variant: "ghost"}) {
+						Ghost
+					}
+					@cmp.Button(cmp.ButtonProps{Variant: "primary", Disabled: true}) {
+						Disabled
+					}
+				</div>
+				<div class="flex flex-wrap gap-3 mt-2">
+					@cmp.Button(cmp.ButtonProps{Variant: "primary", Size: "sm"}) {
+						Small
+					}
+					@cmp.Button(cmp.ButtonProps{Variant: "primary"}) {
+						Default
+					}
+					@cmp.Button(cmp.ButtonProps{Variant: "primary", Size: "lg"}) {
+						Large
+					}
+				</div>
+			</section>
+			<!-- ═══ Inputs ═══ -->
+			<section>
+				<h2 class="section-title mb-3">Inputs</h2>
+				<div class="flex flex-col gap-4 w-full max-w-xs">
+					@cmp.Input(cmp.InputProps{
+						ID: "name", Label: "Name", Type: "text",
+						Placeholder: "Your name",
+					})
+					@cmp.Input(cmp.InputProps{
+						ID: "email", Label: "Email", Type: "email",
+						Placeholder: "you@example.com",
+						Hint:        "We'll never share your email.",
+					})
+					@cmp.Input(cmp.InputProps{
+						ID: "err", Label: "With error", Type: "text",
+						Value: "wrong@", Variant: "error",
+						Error: "Invalid email address.",
+					})
+				</div>
+			</section>
+			<!-- ═══ Toggle Switches ═══ -->
+			<section>
+				<h2 class="section-title mb-3">Toggles</h2>
+				<div class="flex flex-col gap-3">
+					@cmp.Toggle(cmp.ToggleProps{ID: "notif", Label: "Notifications", Checked: true})
+					@cmp.Toggle(cmp.ToggleProps{ID: "dark", Label: "Dark mode", Variant: "accent"})
+					@cmp.Toggle(cmp.ToggleProps{ID: "disabled-toggle", Label: "Disabled", Disabled: true})
+				</div>
+			</section>
+			<!-- ═══ HTMX Demo ═══ -->
+			<section>
+				<h2 class="section-title mb-3">HTMX + Hyperscript</h2>
+				<div class="flex flex-wrap items-center gap-3">
+					@cmp.Button(cmp.ButtonProps{
+						Variant: "primary",
+						Attrs: templ.Attributes{
+							"hx-get":    "/api/hello",
+							"hx-target": "#greeting",
+							"hx-swap":   "innerHTML",
+						},
+					}) {
+						Say Hello
+					}
+					<div id="greeting" class="greeting-text"></div>
+				</div>
+				<div class="flex flex-wrap items-center gap-3 mt-2">
+					@cmp.Button(cmp.ButtonProps{
+						Variant: "secondary",
+						Attrs: templ.Attributes{
+							"hx-post":   "/api/counter",
+							"hx-target": "#counter",
+							"hx-swap":   "innerHTML",
+						},
+					}) {
+						Increment
+					}
+					<span id="counter" class="counter-text">0</span>
+				</div>
+				@cmp.Button(cmp.ButtonProps{
+					Variant: "ghost",
+					Attrs: templ.Attributes{
+						"_": "on click toggle .text-white on #hyperscript-demo",
+					},
+				}) {
+					Toggle color (Hyperscript)
+				}
+				<p id="hyperscript-demo" class="demo-text">
+					This text changes color when you click above.
+				</p>
+			</section>
 		</div>
 	}
 }

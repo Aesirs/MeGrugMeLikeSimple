@@ -1,11 +1,10 @@
 package handlers
 
 import (
+	"MeGrugMeLikeSimple/internal/views"
 	"net/http"
 	"strconv"
 	"sync/atomic"
-
-	"MeGrugMeLikeSimple/internal/views"
 )
 
 type HomeHandler struct {
